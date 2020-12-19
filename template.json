@@ -1,0 +1,46 @@
+{
+    "Actor": {
+        "types": ["PC", "NPC", "Creature"],
+        "templates": {
+            "attrib": {
+                "str": {"min": 0, "value": 10, "max": 18},
+                "dex": {"min": 0, "value": 10, "max": 18},
+                "con": {"min": 0, "value": 10, "max": 18},
+                "int": {"min": 0, "value": 10, "max": 18},
+                "wis": {"min": 0, "value": 10, "max": 18},
+                "cha": {"min": 0, "value": 10, "max": 18}
+            },
+            "HP": {"min": 0, "value": 10, "max": 100}
+        },
+        "PC": {
+            "templates": ["attrib", "HP"],
+            "xp": {"min": 0, "value": 0, "max": 100000},
+            "lvl": {"min": 1, "value": 1, "max": 9},
+            "class": {
+                "warrior": {
+                    "HP.start": "6 + con.mod",
+                    "HP.up": "1d10 + con.mod",
+                    "armor": "all",
+                    "weapon.prof": "all",
+                    "ability.prof": ["attrib.str", "attrib.con"]
+                }
+            }
+        }
+
+    },
+
+    "Item": {
+        "types": ["weapon", "spell"],
+        "templates": {
+            "price": 10,
+            "sup": 1
+        },
+        "weapon": {
+            "templates": ["price", "sup"]
+        },
+        "spell": {
+            "level": 1
+        }
+
+    }
+}
